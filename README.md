@@ -8,4 +8,4 @@ the binary code. This has been done using regular expressions in c++ making it v
 any instruction set and produce the corresponding binary output. The exact way to do this is in the code 
 but a more detailed documentation is being developed.
 
-The program takes Factorial.asm as input and using the pseudoMIPS.dict encodes every instruction and gives the output Factorial.bin
+The program takes Factorial.asm as input and using the pseudoMIPS.dict encodes every instruction and gives the output Factorial.bin. The pseudoMIPS.dict contains the regular expressions corresponding to the actual instructions which will be uploaded soon.
