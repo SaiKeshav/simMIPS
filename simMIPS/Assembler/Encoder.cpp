@@ -87,7 +87,7 @@ string Encoder::encode(string instruction,int lineNo,map<string,int> labels){
 string Encoder::sp1_Encode(int lineNo,map<string,int> labels,string label){
 	int labelNo=0;
 	labelNo=labels[label];
-	int relativeDistance=labelNo-lineNo;
+	int relativeDistance=labelNo-(lineNo+1);//The lineNo is 0 indexed
 	//if 'relativeDistance'<0, bitset uses 2's complement form, as required
 	MyBitSet branch(relativeDistance,4);
 	return branch.to_string();

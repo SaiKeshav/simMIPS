@@ -10,6 +10,10 @@
 
 using namespace std;
 
+#ifndef ENCODER_H_
+#define ENCODER_H_
+
+
 /**
  * This object is used to encode an assembly instruction
  * It requires two inputs :
@@ -44,5 +48,5 @@ public :
 	string encode(string instr,int lineNo,map<string,int> labels);
 };
 
-
+#endif/*Encoder.h*/
 

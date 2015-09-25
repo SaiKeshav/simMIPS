@@ -5,6 +5,11 @@
  *      Author: keshav
  */
 
+#include<iostream>
+#include<vector>
+#include<Assembler/Encoder.h>
+#include<map>
+
 #ifndef ASSEMBLER_H_
 #define ASSEMBLER_H_
 

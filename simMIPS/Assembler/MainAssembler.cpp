@@ -1,5 +1,5 @@
 /*
- * Main.cpp
+ * MainAssembler.cpp
  *
  *  Created on: 08-Aug-2015
  *      Author: keshav
@@ -12,9 +12,11 @@
 
 #include<Assembler/Encoder.h>
 #include<Assembler/Assembler.h>
+#include<NP_Processor/NPPGlobals.h>
 
 using namespace std;
 
+vector<string> binInstructions;
 
 Assembler::Assembler(string ifile,string dfile,string ofile){
 	parseInput(ifile);
@@ -57,7 +59,7 @@ void Assembler::parseInput(string inputFile){
  * each line representing how to encode a particular instruction
  *
  * Format of the line :
- * regex;binaryenocding
+ * regex;binaryencoding
  *
  * It must contain the regular expression that matches the instruction
  * required and 'binaryencoding' is a string determining how to encode
@@ -140,27 +142,29 @@ void Assembler::trim(string& str){
  */
 void Assembler::encode(string outputFile){
 	ofstream output(outputFile);
+	string binInst;
 	for(size_t i=0;i<instructions.size();i++){
 		string inst = instructions[i];
 		for(size_t j=0;j<dictionary.size();j++){
 			Encoder e = dictionary[j];
 			if(e.match(inst)){
-				output<<e.encode(inst,i,labels)<<endl;
+				binInst=e.encode(inst,i,labels);
+				output<<binInst<<endl;
+				binInstructions.push_back(binInst);
 			}
 		}
 	}
 	output.close();
-	cout<<"Output succesfully written to "<< endl <<outputFile;
+//	cout<<"Output succesfully written to "<< endl << outputFile;
 }
 
-int main(int argc,char *argv[]){
-	if(argc != 4)
-		cout<<"Expected usage : "<<"<input-file-name> <dictionary-file-name> <output-file-name>";
-	string ifile = argv[1];
-	string dfile = argv[2];
-	string ofile = argv[3];
-	Assembler a(ifile,dfile,ofile);
+//int main(int argc,char *argv[]){
+//	if(argc != 4)
+//		cout<<"Expected usage : "<<"<input-file-name> <dictionary-file-name> <output-file-name>";
+//	string ifile = argv[1];
+//	string dfile = argv[2];
+//	string ofile = argv[3];
+//	Assembler a(ifile,dfile,ofile);
 //	Assembler a("/home/keshav/Desktop/simMIPS/Factorial.asm","/home/keshav/Desktop/simMIPS/pseudoMIPS.dict"
 //			,"/home/keshav/Desktop/simMIPS/Factorial.bin");
-}
-
+//}
