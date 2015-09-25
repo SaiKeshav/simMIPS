@@ -29,7 +29,8 @@ void writeback(){
 		Registers[address]=inputWB;
 		cout<<"Writing back result into register having address"<<address<<endl;
 	}else{
-		cout<<"Nothing  to write back"<<endl;
+		cout<<"Nothing to write back"<<endl;
+		cout<<"Testing";
 	}
 }
 
