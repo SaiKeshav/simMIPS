@@ -1,0 +1,12 @@
+add R([[:digit:]]),R([[:digit:]]),R([[:digit:]]);0001G1=4G2=4G3=4
+add R([[:digit:]]),I([[:digit:]]),R([[:digit:]]);0010G1=4G2=4G3=4
+mul R([[:digit:]]),R([[:digit:]]),R([[:digit:]]);0011G1=4G2=4G3=4
+mul R([[:digit:]]),I([[:digit:]]),R([[:digit:]]);0100G1=4G2=4G3=4
+bgt R([[:digit:]]),R([[:digit:]]),([a-zA-Z0-9]*);0101G1=4G2=4G3=sp1
+blt R([[:digit:]]),R([[:digit:]]),([a-zA-Z0-9]*);0110G1=4G2=4G3=sp1
+beq R([[:digit:]]),R([[:digit:]]),([a-zA-Z0-9]*);0111G1=4G2=4G3=sp1
+jump ([a-zA-Z0-9]*);1000G1=sp2
+load R([[:digit:]]),([[:digit:]])\(R([[:digit:]])\);1001G3=4G2=4G1=4
+store R([[:digit:]]),([[:digit:]])\(R([[:digit:]])\);1010G3=4G2=4G1=4
+and R([[:digit:]]),R([[:digit:]]),R([[:digit:]]);1011G1=4G2=4G3=4
+or R([[:digit:]]),R([[:digit:]]),R([[:digit:]]);1100G1=4G2=4G3=4
